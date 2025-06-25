@@ -1,4 +1,5 @@
 import json
+import os
 import streamlit as st
 import random
 
@@ -7,10 +8,12 @@ st.set_page_config(page_title="B-Roll Assistant", layout="wide")
 st.title(" B-Roll Assistant")
 st.write("Pick and preview b-roll videos based on the type of video you're creating.")
 
-# this will Load video links (organized by category and subcategory) from a JSON file.
-# Each category like 'fitness' has subcategories like 'arms', 'legs' etc.
+## This function will load video links from the videos.json file.
+# It builds the correct full path to the file so that the app works no matter where it's running from.
 def load_video_data():
-    with open("videos.json", "r") as f:
+    current_dir = os.path.dirname(__file__)
+    file_path = os.path.join(current_dir, "videos.json")
+    with open(file_path, "r") as f:
         return json.load(f)
 #load the data
 video_db = load_video_data()
