@@ -76,3 +76,13 @@ This is just the start. Here are a few things I plan to add next:
 - **Save Project Boards:** Let users save b-roll sets under project names (like “Gym Video” or “Street Vlog”) and come back to them anytime.
 
 These are small ideas I’ll build on as I keep learning.
+
+##  How to Run on Windows
+
+1. Install Python from https://python.org  
+2. Open Command Prompt and run:  
+   pip install streamlit  
+3. Download or clone this project from GitHub  
+4. Navigate to the folder where index1.py is located  
+5. Run the app with:  
+   streamlit run index1.py  
