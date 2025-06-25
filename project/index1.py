@@ -11,7 +11,7 @@ st.write("Pick and preview b-roll videos based on the type of video you're creat
 ## This function will load video links from the videos.json file.
 # It builds the correct full path to the file so that the app works no matter where it's running from.
 def load_video_data():
-    current_dir = os.path.dirname(__file__)
+    current_dir = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(current_dir, "videos.json")
     with open(file_path, "r") as f:
         return json.load(f)
