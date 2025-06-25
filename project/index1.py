@@ -1,3 +1,4 @@
+import json
 import streamlit as st
 import random
 
@@ -6,62 +7,13 @@ st.set_page_config(page_title="B-Roll Assistant", layout="wide")
 st.title(" B-Roll Assistant")
 st.write("Pick and preview b-roll videos based on the type of video you're creating.")
 
-# this function shows the video as divided to diffrent category and sub category for example in fitness videos subcategory would be the body parts of the specific fitness workout 
-def get_video_data():
-    return {
-        "fitness": {
-            "arms": [
-                # the video links are direct .mp4 files that can be directly displayed on the web app 
-                "https://media.musclewiki.com/media/uploads/videos/branded/male-Cables-cable-push-down-front.mp4#t=0.1",
-                "https://media.musclewiki.com/media/uploads/videos/branded/male-bodyweight-chinup-side.mp4#t=0.1",
-                "https://media.musclewiki.com/media/uploads/videos/branded/male-Barbell-barbell-curl-side.mp4#t=0.1",
-                "https://media.musclewiki.com/media/uploads/videos/branded/male-Kettlebells-kettlebell-goblet-curl-side.mp4#t=0.1"
-            ],
-            "legs": [
-                "https://media.musclewiki.com/media/uploads/videos/branded/male-Kettlebells-kettlebell-single-arm-forward-lunge-side.mp4#t=0.1",
-                "https://media.musclewiki.com/media/uploads/videos/branded/male-Kettlebells-kettlebell-calf-raise-side.mp4#t=0.1",
-                "https://media.musclewiki.com/media/uploads/videos/branded/male-Kettlebells-kettlebell-staggered-deadlift-single-side.mp4#t=0.1",
-                "https://media.musclewiki.com/media/uploads/videos/branded/male-Dumbbells-dumbbell-bulgarian-split-squat-side.mp4#t=0.1"
-            ]
-        },
-        "travel": {
-            "nature": [
-                "https://videos.pexels.com/video-files/2894891/2894891-uhd_2560_1440_24fps.mp4",
-                "https://videos.pexels.com/video-files/3018669/3018669-hd_1920_1080_24fps.mp4"
-            ],
-            "urban": [
-                "https://videos.pexels.com/video-files/5857311/5857311-uhd_1440_2732_25fps.mp4",
-                "https://videos.pexels.com/video-files/852352/852352-hd_1920_1080_30fps.mp4",
-                "https://videos.pexels.com/video-files/7251030/7251030-uhd_1440_2560_25fps.mp4"
-            ]
-        },
-        "cooking": {
-            "healthy": [
-                "https://videos.pexels.com/video-files/4360751/4360751-uhd_2560_1440_25fps.mp4",
-                "https://videos.pexels.com/video-files/4252335/4252335-uhd_1440_2732_25fps.mp4",
-                "https://videos.pexels.com/video-files/3195942/3195942-uhd_2560_1440_25fps.mp4"
-            ],
-            "fast food": [
-                "https://videos.pexels.com/video-files/3196344/3196344-uhd_2560_1440_25fps.mp4",
-                "https://videos.pexels.com/video-files/2922562/2922562-hd_1920_1080_25fps.mp4"
-            ]
-        },
-        "tech": {
-            "programming": [
-                "https://videos.pexels.com/video-files/852421/852421-hd_1920_1080_30fps.mp4",
-                "https://videos.pexels.com/video-files/5495845/5495845-hd_1920_1080_30fps.mp4",
-                "https://videos.pexels.com/video-files/2887463/2887463-hd_1920_1080_25fps.mp4"
-            ],
-            "setup": [
-                "https://videos.pexels.com/video-files/7914824/7914824-hd_1920_1080_30fps.mp4",
-                "https://videos.pexels.com/video-files/30470982/13057074_2560_1440_24fps.mp4",
-                "https://videos.pexels.com/video-files/30470981/13057092_2560_1440_24fps.mp4"
-            ]
-        }
-    }
-
-# Load the video list
-video_db = get_video_data()
+# this will Load video links (organized by category and subcategory) from a JSON file.
+# Each category like 'fitness' has subcategories like 'arms', 'legs' etc.
+def load_video_data():
+    with open("videos.json", "r") as f:
+        return json.load(f)
+#load the data
+video_db = load_video_data()
 
 # Sidebar- this will help people to choose thier categorys and subcategories of the videos they want to make 
 st.sidebar.header(" Choose a Category")
