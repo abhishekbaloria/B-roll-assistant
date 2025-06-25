@@ -42,9 +42,11 @@
       "https://videos.pexels.com/video-files/2887463/2887463-hd_1920_1080_25fps.mp4"
     ],
     "setup": [
-      "https://videos.pexels.com/video-files/7914824/7914824-hd_1920_1080_30fps.mp4",
-      "https://videos.pexels.com/video-files/30470982/13057074_2560_1440_24fps.mp4",
-      "https://videos.pexels.com/video-files/30470981/13057092_2560_1440_24fps.mp4"
-    ]
+  "https://videos.pexels.com/video-files/7914824/7914824-hd_1920_1080_30fps.mp4",
+  "https://videos.pexels.com/video-files/30470982/13057074_2560_1440_24fps.mp4",
+  "https://videos.pexels.com/video-files/30470981/13057092_2560_1440_24fps.mp4",
+  "https://videos.pexels.com/video-files/30470981/13057092_2560_1440_24fps.mp4"
+  
+]
   }
 }
